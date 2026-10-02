@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c8xalr2vglo40"]
 
 [ext_resource type="Script" uid="uid://dtfpy1tv7itut" path="res://Player/player.gd" id="1_l8h54"]
-[ext_resource type="Script" uid="uid://clg4fnnicrt37" path="res://Player/Classes/PlayerMovementData.gd" id="2_btcbx"]
-[ext_resource type="Script" uid="uid://bhsp0nq0rhc6e" path="res://Player/Classes/PlayerCameraRotationData.gd" id="3_gwnis"]
+[ext_resource type="Script" uid="uid://clg4fnnicrt37" path="res://Player/DefaultData/PlayerMovementData.gd" id="2_btcbx"]
+[ext_resource type="Script" uid="uid://bhsp0nq0rhc6e" path="res://Player/DefaultData/PlayerCameraRotationData.gd" id="3_gwnis"]
 
 [sub_resource type="Resource" id="Resource_l8h54"]
 script = ExtResource("2_btcbx")
