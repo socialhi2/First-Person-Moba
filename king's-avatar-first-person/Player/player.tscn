@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dtfpy1tv7itut" path="res://Player/player.gd" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://clg4fnnicrt37" path="res://Player/DefaultData/PlayerMovementData.gd" id="2_btcbx"]
 [ext_resource type="Script" uid="uid://bhsp0nq0rhc6e" path="res://Player/DefaultData/PlayerCameraRotationData.gd" id="3_gwnis"]
+[ext_resource type="PackedScene" uid="uid://d3cdc3dg7or1y" path="res://Assets/Basic Player.glb" id="4_gwnis"]
 
 [sub_resource type="Resource" id="Resource_l8h54"]
 script = ExtResource("2_btcbx")
@@ -21,8 +22,11 @@ camera_data = SubResource("Resource_4ntmi")
 camera = NodePath("Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1554773220]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.734895, 0)
+transform = Transform3D(1, 0, 0, 0, 0.8499238, 0.5269056, 0, -0.5269056, 0.8499238, 0, 2.3336613, 0.90685576)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=129250523]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_y8xgx")
+
+[node name="Basic Player" parent="." unique_id=2091362813 instance=ExtResource("4_gwnis")]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 0, 0.87362266, 0)
