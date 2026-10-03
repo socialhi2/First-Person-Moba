@@ -21,12 +21,12 @@ movement_data = SubResource("Resource_l8h54")
 camera_data = SubResource("Resource_4ntmi")
 camera = NodePath("Head/Camera3D")
 
+[node name="Basic Player" parent="." unique_id=2091362813 instance=ExtResource("4_gwnis")]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 0, 0.87362266, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=129250523]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_y8xgx")
-
-[node name="Basic Player" parent="." unique_id=2091362813 instance=ExtResource("4_gwnis")]
-transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 0, 0.87362266, 0)
 
 [node name="Head" type="Node3D" parent="." unique_id=1534483339]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
