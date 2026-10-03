@@ -19,10 +19,7 @@ metadata/_custom_type_script = "uid://bhsp0nq0rhc6e"
 script = ExtResource("1_l8h54")
 movement_data = SubResource("Resource_l8h54")
 camera_data = SubResource("Resource_4ntmi")
-camera = NodePath("Camera3D")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1554773220]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+camera = NodePath("Head/Camera3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=129250523]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -30,4 +27,10 @@ shape = SubResource("CapsuleShape3D_y8xgx")
 
 [node name="Basic Player" parent="." unique_id=2091362813 instance=ExtResource("4_gwnis")]
 transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 0, 0.87362266, 0)
-visible = false
+
+[node name="Head" type="Node3D" parent="." unique_id=1534483339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1554773220]
+cull_mask = 1047553
+current = true
