@@ -16,37 +16,49 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * movement_data.gravity * delta 
+	
 	if is_on_floor():
 		movement_data.current_jumps = 0
+		
 	# Handle running
 	if Input.is_action_pressed("Run") and is_on_floor():
 		movement_data.speed = movement_data.default_speed * movement_data.running_speed_multiplier
 	else:
 		movement_data.speed = movement_data.default_speed
-	# Handle jump.
-	if  Input.is_action_just_pressed("Jump") and (movement_data.current_jumps <= movement_data.total_jumps):
-		velocity.y = movement_data.JUMP_VELOCITY
-		if !is_on_floor():
-			movement_data.current_jumps += 1
-		#movement_data.current_jumps + 1 
-		#if Input.is_action_just_pressed("Jump") and movement_data.current_jumps != movement_data.total_jumps:
-		#	velocity.y = velocity.y + movement_data.JUMP_VELOCITY
-		#	movement_data.current_jumps + 1 
-	if is_on_floor():
-		movement_data.total_jumps = 0
 		
+	# Handle jump.
+	if Input.is_action_just_pressed("Jump") and (movement_data.current_jumps < movement_data.total_jumps):
+		velocity.y = movement_data.JUMP_VELOCITY
+		movement_data.current_jumps += 1
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("Left", "Right", "Forward", "Backwards")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
 	if direction:
-		velocity.x = direction.x * movement_data.speed
-		velocity.z = direction.z * movement_data.speed
+		if is_on_floor():
+			# Full movement control while on the ground
+			velocity.x = direction.x * movement_data.speed
+			velocity.z = direction.z * movement_data.speed
+		else:
+			# Limited movement control while in the air
+			velocity.x = move_toward(
+				velocity.x,
+				direction.x * movement_data.speed,
+				movement_data.speed * movement_data.air_control * delta
+			)
+			velocity.z = move_toward(
+				velocity.z,
+				direction.z * movement_data.speed,
+				movement_data.speed * movement_data.air_control * delta
+			)
 	else:
-		velocity.x = move_toward(velocity.x, 0, movement_data.speed)
-		velocity.z = move_toward(velocity.z, 0, movement_data.speed)
+		if is_on_floor():
+			# Stop the player when there is no movement input
+			velocity.x = move_toward(velocity.x, 0, movement_data.speed)
+			velocity.z = move_toward(velocity.z, 0, movement_data.speed)
 
 	move_and_slide()
 
