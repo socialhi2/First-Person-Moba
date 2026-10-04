@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c7u4m2ykgphvd"]
 
-[ext_resource type="LabelSettings" uid="uid://cpeeln4b38uiy" path="res://UI Font.tres" id="1_od5g5"]
+[ext_resource type="LabelSettings" uid="uid://cpeeln4b38uiy" path="res://Player/UI Font.tres" id="1_od5g5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8xgx"]
 
