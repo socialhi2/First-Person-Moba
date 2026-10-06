@@ -13,23 +13,23 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Control" unique_id=156692767]
+[node name="Basic Stats" type="PanelContainer" parent="Control" unique_id=156692767]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 offset_right = 249.0
 offset_bottom = 114.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer" unique_id=1748075378]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Basic Stats" unique_id=1748075378]
 layout_mode = 2
 alignment = 1
 
-[node name="Health" type="Label" parent="Control/PanelContainer/VBoxContainer" unique_id=753581834]
+[node name="Health" type="Label" parent="Control/Basic Stats/VBoxContainer" unique_id=753581834]
 layout_mode = 2
 text = "Health : 100"
 label_settings = ExtResource("1_od5g5")
 vertical_alignment = 1
 
-[node name="Stamina" type="Label" parent="Control/PanelContainer/VBoxContainer" unique_id=1918974125]
+[node name="Stamina" type="Label" parent="Control/Basic Stats/VBoxContainer" unique_id=1918974125]
 layout_mode = 2
 text = "Stamina: 100"
 label_settings = ExtResource("1_od5g5")
@@ -79,3 +79,8 @@ custom_minimum_size = Vector2(100, 0)
 custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_y8xgx")
+
+[node name="Player Stats" type="PanelContainer" parent="Control" unique_id=1767664148]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
