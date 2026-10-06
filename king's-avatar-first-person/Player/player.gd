@@ -59,8 +59,14 @@ func _physics_process(delta: float) -> void:
 			# Stop the player when there is no movement input
 			velocity.x = move_toward(velocity.x, 0, movement_data.speed)
 			velocity.z = move_toward(velocity.z, 0, movement_data.speed)
-
+	
+	if Input.is_action_just_pressed("Attack"):
+		pass
+	if Input.is_action_just_pressed("Alt_Attack"):
+		pass
+	
 	move_and_slide()
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
